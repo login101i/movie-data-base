@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Row from './Row'
+import { requests } from './requests'
 
 
 const MainPage = () => {
+
     return (
-        <Row />
+        <>
+            <Row category={requests.fetchTrending} title="Trending"/>
+            <Row category={requests.fetchTopRated} 
+            title="Top Rated"
+            />
+        </>
     )
 }
 
