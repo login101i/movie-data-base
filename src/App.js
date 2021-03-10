@@ -7,23 +7,25 @@ import Favourites from './Favourites'
 import Footer from './Footer'
 import DefaultPage from './DefaultPage'
 import MovieDetails from './MovieDetails'
-
+import { MovieState } from './MovieContext'
 
 const App = () => {
   return (
     <s.App>
+      <MovieState>
 
-      <Navbar />
-      <Switch>
+        <Navbar />
+        <Switch>
 
-        <Route path='/' component={MainPage} />
-        <Route path='/favourites' component={Favourites} />
-        <Route path='/movie/:movieId' component={MovieDetails} />
-        <Route component={DefaultPage} />
+          <Route path='/' component={MainPage} />
+          <Route path='/favourites' component={Favourites} exact/>
+          <Route path='/moviedetail/:id' component={MovieDetails} exact />
+          <Route component={DefaultPage} />
 
-      </Switch>
-      <Footer />
+        </Switch>
+        <Footer />
 
+      </MovieState>
     </s.App>
   )
 }

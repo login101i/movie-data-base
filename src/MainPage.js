@@ -1,10 +1,10 @@
 import React from 'react'
+import Row from './Row'
+
 
 const MainPage = () => {
     return (
-        <div>
-            Hello from Main MainPage
-        </div>
+        <Row />
     )
 }
 
