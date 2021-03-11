@@ -45,7 +45,7 @@ text-align:center;
 
 `
 export const BannerFade = styled.div`
-height:190px;
+height:220px;
 width:100%;
   background-image: linear-gradient(180deg, transparent, rgba(75, 32, 124, 0.89), rgb(12,12,12));
 }

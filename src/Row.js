@@ -23,7 +23,7 @@ const Row = ({ category, title, large, history }) => {
     }, [])
 
     const goToDetails = (id) => {
-        history.push(`/moviedetail/${id}`);
+        history.push(`/moviedetails/${id}`);
     }
 
 

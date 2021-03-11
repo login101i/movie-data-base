@@ -6,10 +6,11 @@ export const MovieContext = createContext()
 
 export const MovieState = ({ children }) => {
     const [movies, setMovies] = useState([])
-    const API_KEY = "1329705d96ffd5e3a197e84f0b8875e6"
-    const baseUrl ="https://image.tmdb.org/t/p/original"
+    const apiKey = "1329705d96ffd5e3a197e84f0b8875e6"
+    const urlOriginal = "https://image.tmdb.org/t/p/original"
+    const baseUrl = "https://api.themoviedb.org/3/movie/"
 
-    const fetchTrending = `/trending/all/week?api_key=${API_KEY}&language=en-US`
+    const fetchTrending = `/trending/all/week?api_key=${apiKey}&language=en-US`
 
     useEffect(() => {
 
@@ -34,7 +35,9 @@ export const MovieState = ({ children }) => {
     return (
         <MovieContext.Provider
             value={{
+                urlOriginal,
                 baseUrl,
+                apiKey,
                 movies,
                 setMovies
             }}

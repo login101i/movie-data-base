@@ -12,10 +12,20 @@ height:80px;
 display:flex;
 justify-content:space-between;
 padding:20px;
-background:#222;
+background:${p => p.show ? '#222' : "transparent"};
 align-items:center;
+z-index:1;
+transition:0.33s all ease-in-out;
 
 `
+export const NavBigImage = styled.div`
+width:100%;
+`
+export const playIcon = styled.div`
+
+`
+
+
 export const NavbarLogo = styled.img`
 position:fixed;
 left:5%;
