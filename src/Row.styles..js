@@ -30,6 +30,21 @@ object-fit:cover;
 margin-right:20px;
 cursor:pointer;
 background-image:url(${p => p.src});
+transition:0.3s all ease-in-out;
+&:hover{
+  transform:scale(1.04) 
+}
+
+
+${p => p.large && `
+height:400px;
+margin-rigth:30px;
+transition:0.3s all ease-in-out;
+&:hover{
+  transform:scale(1.04) 
+}
+
+`}
 
 
 `

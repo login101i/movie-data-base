@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from './axios'
 import * as s from './Row.styles.'
+import Loader from './Loader'
 
-const Row = ({ category, title }) => {
+const Row = ({ category, title, large, history }) => {
     const [movies, setMovies] = useState([])
     const base_url = "https://image.tmdb.org/t/p/original"
 
@@ -21,18 +22,36 @@ const Row = ({ category, title }) => {
         fetchMovies()
     }, [])
 
+    const goToDetails = (id) => {
+        history.push(`/moviedetail/${id}`);
+    }
+
 
     return (
         <s.RowContainer>
             <s.RowTitle>{title}</s.RowTitle>
             <s.Row>
-                    
-                {movies.map(movie => (
-                    <s.RowImage
-                        key={movie.id}
-                        src={`${base_url}${movie.backdrop_path}`}
-                    />
-                ))}
+                {movies.length === 0 ? <Loader /> : (
+
+                    movies.map(movie => (
+                        large ? (
+                            <s.RowImage
+                                key={movie.id}
+                                src={`${base_url}${movie.backdrop_path}`}
+                                large
+                                onClick={() => goToDetails(movie.id)}
+                            />
+                        ) : (
+                                <s.RowImage
+                                    key={movie.id}
+                                    src={`${base_url}${movie.backdrop_path}`}
+                                />
+                            )
+                    ))
+
+                )}
+
+
 
             </s.Row>
         </s.RowContainer>

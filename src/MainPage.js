@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
 import Row from './Row'
 import { requests } from './requests'
+import Banner from './Banner'
 
 
-const MainPage = () => {
+const MainPage = ({ history }) => {
 
     return (
         <>
-            <Row category={requests.fetchTrending} title="Trending"/>
-            <Row category={requests.fetchTopRated} 
-            title="Top Rated"
+            <Banner />
+            <Row category={requests.fetchTrending} title="Trending" large history={history} />
+            <Row category={requests.fetchTopRated}
+                title="Top Rated"
             />
         </>
     )
