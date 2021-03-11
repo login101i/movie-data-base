@@ -1,10 +1,11 @@
 import React from 'react'
+import * as s from './Footer.styles'
 
 const Footer = () => {
     return (
-        <div>
-            Hello from Footer
-        </div>
+        <s.FooterContainer>
+            Copyright login101i 2021
+        </s.FooterContainer>
     )
 }
 
