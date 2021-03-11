@@ -16,12 +16,10 @@ const App = () => {
 
         <Navbar />
         <Switch>
-
           <Route path='/' component={MainPage} exact/>
           <Route path='/favourites' component={Favourites} exact />
           <Route path='/moviedetails/:id' component={MovieDetails} exact />
           <Route component={DefaultPage} />
-
         </Switch>
         <Footer />
 

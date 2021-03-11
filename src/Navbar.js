@@ -40,7 +40,7 @@ const Navbar = () => {
                     src={logoImg} />
             </Link>
             <Link to="/favourites" style={{ textDecoration: 'none', color: 'white' }}>
-                <s.NavbarFavourites>Favourites</s.NavbarFavourites>
+                <s.NavbarFavourites>My Favourites</s.NavbarFavourites>
             </Link>
             <s.Container>
                 <s.NavbarForm onSubmit={handleSearch}>

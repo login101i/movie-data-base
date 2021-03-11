@@ -63,7 +63,6 @@ margin-left:30px;
 transition:0.3s all ease-in-out;
 background-color:${p => !p.alreadyFavourite ? "grey" : "grey"};
 
-
 &:hover{
    transform: scale(1.04);
 }

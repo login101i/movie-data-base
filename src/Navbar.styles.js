@@ -10,7 +10,7 @@ top:0;
 width:100%;
 height:80px;
 display:flex;
-justify-content:space-between;
+justify-content:flex-end;
 padding:20px;
 background:${p => p.show ? '#222' : "transparent"};
 align-items:center;
@@ -34,6 +34,7 @@ margin-top:22px;
 width:60px;
 object-fit:contain;
 background-image:url(${p => p.src})
+flex:1;
 `
 export const NavbarForm = styled.div`
 min-width:200px;
@@ -64,4 +65,5 @@ margin-left:5px;
 `
 export const NavbarFavourites = styled.div`
 font-size:22px;
+margin-right:70px;
 `
