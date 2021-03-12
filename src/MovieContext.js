@@ -8,6 +8,7 @@ export const MovieState = ({ children }) => {
     const [movies, setMovies] = useState([])
     const [typeOfMovies, setTypeOfMovies] = useState('randomMovies')
     const [search, setSearch] = useState('')
+    const [keyword, setKeyword] = useState('')
     const apiKey = "1329705d96ffd5e3a197e84f0b8875e6"
     const urlOriginal = "https://image.tmdb.org/t/p/original"
     const baseUrl = "https://api.themoviedb.org/3/movie/"
@@ -20,7 +21,6 @@ export const MovieState = ({ children }) => {
             try {
                 const request = await axios.get(fetchTrending)
                 const result = request.data.results
-                console.log("result z MovieContext", result)
                 setMovies(result)
             } catch (error) {
                 console.log(error)
@@ -37,9 +37,14 @@ export const MovieState = ({ children }) => {
         if (search.trim() === "") return
 
         const searchMovies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${search}`)
-        const searchResponse = searchMovies.json()
-        setMovies(searchResponse)
+        const searchResponse = await searchMovies.json()
+        setMovies(searchResponse.results)
+        console.log("movies after fetch-------", searchResponse)
+
         setTypeOfMovies("FilteredMovies")
+        setKeyword(search)
+        setSearch('')
+
     }
 
     return (
@@ -53,7 +58,8 @@ export const MovieState = ({ children }) => {
                 typeOfMovies,
                 search,
                 setSearch,
-                handleSearch
+                handleSearch,
+                keyword
             }}
         >
             {children}

@@ -9,7 +9,6 @@ const Banner = () => {
     const [movieImage, setMovieImage] = useState('')
     const [movieSample, setMovieSample] = useState('')
 
-    console.log('movie sample', movieSample)
 
     useEffect(() => {
         const getImage = async () => {

@@ -3,12 +3,12 @@ import Row from './Row'
 import { requests } from './requests'
 import Banner from './Banner'
 import MovieContext from './MovieContext'
+import FilteredMovies from './FilteredMovies'
 
 
 const MainPage = ({ history }) => {
 
     const { baseUrl, typeOfMovies } = useContext(MovieContext)
-    console.log('baseUrl from Mainpage', typeOfMovies)
 
     return (
         <>
@@ -21,7 +21,7 @@ const MainPage = ({ history }) => {
                         title="Top Rated" />
                 </>
             ) : (
-                <div>Hello from filteredMovies</div>
+                <FilteredMovies/>
             )}
         </>
     )
