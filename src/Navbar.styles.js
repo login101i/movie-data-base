@@ -36,7 +36,7 @@ object-fit:contain;
 background-image:url(${p => p.src})
 flex:1;
 `
-export const NavbarForm = styled.div`
+export const NavbarForm = styled.form`
 min-width:200px;
 height:50px;
 background-color:white;
@@ -52,10 +52,8 @@ width:90%;
 heigth:90%;
 border:none;
 outline:none;
-
-
-
 `
+
 export const NavbarButton = styled.button`
 width:50px;
 height:50px;
@@ -63,6 +61,8 @@ background-color:white;
 border-radius:10px;
 margin-left:5px;
 `
+
+
 export const NavbarFavourites = styled.div`
 font-size:22px;
 margin-right:70px;

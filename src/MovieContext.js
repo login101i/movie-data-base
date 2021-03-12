@@ -6,6 +6,8 @@ export const MovieContext = createContext()
 
 export const MovieState = ({ children }) => {
     const [movies, setMovies] = useState([])
+    const [typeOfMovies, setTypeOfMovies] = useState('randomMovies')
+    const [search, setSearch] = useState('')
     const apiKey = "1329705d96ffd5e3a197e84f0b8875e6"
     const urlOriginal = "https://image.tmdb.org/t/p/original"
     const baseUrl = "https://api.themoviedb.org/3/movie/"
@@ -30,7 +32,15 @@ export const MovieState = ({ children }) => {
 
     }, [])
 
+    const handleSearch = async (e) => {
+        e.preventDefault()
+        if (search.trim() === "") return
 
+        const searchMovies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${search}`)
+        const searchResponse = searchMovies.json()
+        setMovies(searchResponse)
+        setTypeOfMovies("FilteredMovies")
+    }
 
     return (
         <MovieContext.Provider
@@ -39,7 +49,11 @@ export const MovieState = ({ children }) => {
                 baseUrl,
                 apiKey,
                 movies,
-                setMovies
+                setMovies,
+                typeOfMovies,
+                search,
+                setSearch,
+                handleSearch
             }}
         >
             {children}
